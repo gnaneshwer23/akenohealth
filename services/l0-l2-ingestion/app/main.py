@@ -43,8 +43,8 @@ def health() -> Dict[str, str]:
 
 @app.post("/ingest", response_model=IngestionResult)
 def ingest(event: IngestionEvent) -> IngestionResult:
-    if not validate_consent_token(event.consentToken):
-        return IngestionResult(accepted=False, qualityScore=0.0, issues=["Invalid or expired consent token"])
+    if not validate_consent_token(event.consentToken, event.patientKey):
+        return IngestionResult(accepted=False, qualityScore=0.0, issues=["Invalid, expired, or mismatched consent token"])
     event_payload = event.model_dump()
     standardized = route_to_standard(event_payload["payloadType"], event_payload["payload"])
     event_payload["payload"] = standardized

@@ -32,6 +32,16 @@ services:
     ports:
       - "9092:9092"
 
+  identity-consent:
+    build:
+      context: ../services/identity-consent
+    environment:
+      POSTGRES_DSN: postgresql://akeno:akeno@postgres:5432/akeno
+    depends_on:
+      - postgres
+    ports:
+      - "8003:8003"
+
   l0-l2-ingestion:
     build:
       context: ../services/l0-l2-ingestion
@@ -41,10 +51,12 @@ services:
       NEO4J_USER: neo4j
       NEO4J_PASSWORD: akeno1234
       KAFKA_BOOTSTRAP_SERVERS: kafka:9092
+      IDENTITY_CONSENT_URL: http://identity-consent:8003
     depends_on:
       - postgres
       - neo4j
       - kafka
+      - identity-consent
     ports:
       - "8001:8001"
 
