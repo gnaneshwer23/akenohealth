@@ -86,9 +86,14 @@ cd web && npm install && npm run dev
 
 ### Deploy (Vercel)
 
+Deploy from the `web/` directory:
+
 ```bash
+cd web
 vercel --prod
 ```
+
+In Vercel project settings, set **Root Directory** to `web` so GitHub pushes auto-deploy correctly.
 
 ## Clinical Safety and Compliance
 
