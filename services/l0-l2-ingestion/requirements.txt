@@ -1,0 +1,6 @@
+fastapi
+uvicorn
+pydantic
+psycopg[binary]
+neo4j
+kafka-python
