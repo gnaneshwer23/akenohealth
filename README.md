@@ -56,6 +56,8 @@ See `infra/docker-compose.yml` for baseline local stack:
 - Neo4j (longitudinal patient graph)
 - Kafka (streaming ingestion and event transport)
 
+For cloud database setup, use Neon Postgres via `docs/infra/neon-vercel-setup.md`.
+
 ## Quick Start
 
 1. Review the KPI and architecture docs in `docs/`.

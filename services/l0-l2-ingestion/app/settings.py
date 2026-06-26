@@ -1,7 +1,9 @@
 import os
 
 
-POSTGRES_DSN = os.getenv("POSTGRES_DSN", "postgresql://akeno:akeno@localhost:5432/akeno")
+POSTGRES_DSN = os.getenv("DATABASE_URL") or os.getenv(
+    "POSTGRES_DSN", "postgresql://akeno:akeno@localhost:5433/akeno"
+)
 NEO4J_URI = os.getenv("NEO4J_URI", "bolt://localhost:7687")
 NEO4J_USER = os.getenv("NEO4J_USER", "neo4j")
 NEO4J_PASSWORD = os.getenv("NEO4J_PASSWORD", "akeno1234")
