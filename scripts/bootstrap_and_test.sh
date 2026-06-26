@@ -29,6 +29,7 @@ echo "1) Starting stack with Docker Compose..."
 docker compose -f "${INFRA_DIR}/docker-compose.yml" up --build -d
 
 echo "2) Waiting for service readiness..."
+wait_for_url "http://localhost:8003/health" "identity-consent"
 wait_for_url "http://localhost:8001/health" "l0-l2-ingestion"
 wait_for_url "http://localhost:8002/health" "l3-l4-ai-safety"
 

@@ -13,6 +13,7 @@ This repository is an implementation starter kit for the full L0-L10 architectur
 - `contracts/` - canonical data contracts and interoperability mappings
 - `infra/` - local infrastructure manifests and platform bootstrapping
 - `services/l0-l2-ingestion/` - ingestion, consent, and patient context services
+- `services/identity-consent/` - patient registration and consent lifecycle service
 - `services/l3-l4-ai-safety/` - model scoring, XAI, and safety guardrail services
 - `services/l7-federated/` - federated training orchestration and evaluation
 - `services/l8-l10-expansion/` - ecosystem, autonomous agent, and privacy-vault tracks
