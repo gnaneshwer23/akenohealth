@@ -10,5 +10,6 @@ venv/
 *.egg-info/
 .pytest_cache/
 .mypy_cache/
-.DS_Store
+web/node_modules
+web/.next
 .vercel

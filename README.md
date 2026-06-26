@@ -60,12 +60,35 @@ For cloud database setup, use Neon Postgres via `docs/infra/neon-vercel-setup.md
 
 ## Quick Start
 
+### Local (Neon-backed web app)
+
+1. Copy `.env.example` to `.env.local` and set Neon `DATABASE_URL`.
+2. Apply migrations and seed data:
+
+```bash
+python scripts/apply_neon_migrations.py
+python scripts/seed_neon_data.py
+```
+
+3. Run web dashboard:
+
+```bash
+cd web && npm install && npm run dev
+```
+
+### Local (Docker microservices)
+
 1. Review the KPI and architecture docs in `docs/`.
 2. Bring up local stack:
    - `cd infra && docker compose up --build -d`
 3. Run smoke test:
    - `bash scripts/e2e_smoke_test.sh`
-4. Run phase gates using checklists in `docs/execution/`.
+
+### Deploy (Vercel)
+
+```bash
+vercel --prod
+```
 
 ## Clinical Safety and Compliance
 
